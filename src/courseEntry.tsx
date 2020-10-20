@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import courseList from './component/data/courseList.json'
 
 type CourseEntryProps = {
     name: string,
@@ -17,7 +16,6 @@ export default function CourseEntry({ name, flag }: CourseEntryProps) {
                 <h2>{name}</h2>
                 <FavoriteIcon className={ flag ? 'icon -flagged' : 'icon' }/>
             </div>
-            
         </Entry>
     )
 }
