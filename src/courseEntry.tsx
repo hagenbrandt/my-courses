@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import courseList from './component/data/courseList.json'
 
 export default function CourseEntry() {
+
     return (
         <Entry>
             <div className="backgroundImage" />
