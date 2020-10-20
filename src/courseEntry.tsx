@@ -3,14 +3,19 @@ import styled from 'styled-components'
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import courseList from './component/data/courseList.json'
 
-export default function CourseEntry() {
+type CourseEntryProps = {
+    name: string,
+    flag: boolean
+}
 
+export default function CourseEntry({ name, flag }: CourseEntryProps) {
+    
     return (
         <Entry>
             <div className="backgroundImage" />
             <div className="content">
-                <h2>Ruhige Hände und ein geschmeidiger Reitersitz</h2>
-                <FavoriteIcon className="icon"/>
+                <h2>{name}</h2>
+                <FavoriteIcon className={ flag ? 'icon -flagged' : 'icon' }/>
             </div>
             
         </Entry>

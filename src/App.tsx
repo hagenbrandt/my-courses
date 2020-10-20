@@ -5,7 +5,10 @@ function App() {
   return (
     <>
       <h1>My Courses</h1>
-      <CourseEntry />
+      <CourseEntry 
+      name="Ruhige Hände und ein geschmeidiger Reitersitz"
+      flag={true}
+      />
     </>
   );
 }
