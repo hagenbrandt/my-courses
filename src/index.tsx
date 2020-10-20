@@ -1,12 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import { createGlobalStyle } from 'styled-components'
 import * as serviceWorker from './serviceWorker';
 
+const GlobalStyle = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+  }
+  #root {
+    width: 100vw;
+  }  
+  body {
+      display: flex;
+      background-color: #FCFCFC;
+      color: #444749;
+      margin: 0;
+      padding: 4vw;
+    }
+`
+
 ReactDOM.render(
-  <React.StrictMode>
+  <>
+    <GlobalStyle />
     <App />
-  </React.StrictMode>,
+  </>,
   document.getElementById('root')
 );
 
