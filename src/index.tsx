@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux'
 import App from './App';
 import { createGlobalStyle } from 'styled-components'
+import {store} from './store/index'
 import * as serviceWorker from './serviceWorker';
 
 const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
   }
   #root {
     width: 100vw;
@@ -20,11 +23,12 @@ const GlobalStyle = createGlobalStyle`
     }
 `
 
+
 ReactDOM.render(
-  <>
+  <Provider store={store}>
     <GlobalStyle />
     <App />
-  </>,
+  </Provider>,
   document.getElementById('root')
 );
 
