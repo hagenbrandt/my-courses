@@ -1,20 +1,36 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import {useDispatch} from 'react-redux'
 import styled from 'styled-components'
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import {TOGGLE_ACTION} from './store/reducer'
 
 type CourseEntryProps = {
+    id: number,
     name: string,
+    flag: boolean,
+}
+
+type setFlagState = {
     flag: boolean
 }
 
-export default function CourseEntry({ name, flag }: CourseEntryProps) {
+export default function CourseEntry({ id, name, flag }: CourseEntryProps) {
+    const [flagState, setFlagState] = useState(flag)
+
+    const dispatch = useDispatch()
+    const handleFlagToggle = (event: React.MouseEvent) => {
+        dispatch({ type: TOGGLE_ACTION, payload: id })
+        setFlagState(!flagState)
+    }
     
     return (
         <Entry>
             <div className="backgroundImage" />
             <div className="content">
                 <h2>{name}</h2>
-                <FavoriteIcon className={ flag ? 'icon -flagged' : 'icon' }/>
+                <div onClick={handleFlagToggle}>
+                    <FavoriteIcon className={ flagState ? 'icon -flagged' : 'icon' } />
+                </div>
             </div>
         </Entry>
     )
@@ -58,6 +74,10 @@ const Entry = styled.section`
     .icon {
         width: 1em;
         height: 1em;
+
+        &:hover {
+            cursor: pointer;
+        }
 
         @media(min-width: 1024px) {
             width: 1.6em;
