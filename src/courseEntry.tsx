@@ -29,7 +29,7 @@ export default function CourseEntry({ id, name, flag }: CourseEntryProps) {
             <div className="content">
                 <h2>{name}</h2>
                 <div onClick={handleFlagToggle}>
-                    <FavoriteIcon className={ flagState ? 'icon -flagged' : 'icon' } />
+                    <FavoriteIcon id={`icon-${id}`} className={ flagState ? 'icon -flagged' : 'icon' } />
                 </div>
             </div>
         </Entry>
